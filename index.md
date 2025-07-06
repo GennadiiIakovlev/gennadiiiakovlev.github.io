@@ -9,4 +9,4 @@ I earned my PhD in Political Science from the European University Institute. I h
 
 My current research develops a novel measure of affective elite polarization.  I use LLMs to measure how legislators express and out-group dislike, interpreting the context and explaining the cues behind each judgment. Covering two decades of European parliamentary speeches, the project will produce an open EU-wide—and eventually global—dataset, together with an interactive visualization portal.
 
-Earlier in my career, my dissertation traced the conditions under which authoritarian regimes negotiate successful pacted exits, showing that outcomes depend on the organizational capacity of the opposition during talks.
+My dissertation traced the conditions under which authoritarian regimes negotiate successful pacted exits, showing that outcomes depend on the organizational capacity of the opposition during talks.
