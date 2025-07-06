@@ -16,4 +16,19 @@ These results suggest that what looks like depoliticisation from the outside is 
 This graph shows which target age (calculated from application content using aritificial intelligence) is more exposed to state ideology. Those are not yong children, but teenagers and students that are mostly exposed.
 ![This graph shows which target age (calculated from application content using aritificial intelligence) is more exposed to state ideology. Those are not yong children, but teenagers and students that are mostly exposed.](/assets/targ_age_to_target_audience.png)
 
-* **Project B** – one-line summary
+**Stylometry Meets Transformer Embeddings**
+I develop this project together with Levente Littvay -- my mentor since my move to Budapest.
+Political speeches, tweets, and press releases often come from a team of ghost‑writers. Stylometry—the science of measuring writing style —has long tried to unmask real authors, but the field is being revolutionized by large language models (LLMs). Can off‑the‑shelf embeddings of state-of-the art transformer LLMs sharpen our ability to assign (or dispute) authorship?
+
+The first approach sticks to classics that any computational social science scholar can already run: sentiment dictionaries, TF–IDF with truncated SVD, and t-SNE plots. The second feeds exactly the same texts through progressively larger language-model encoders: domain-tuned BERT variants for English tweets, a nimble 7-billion-parameter Qwen that will run on a consumer GPU or an Apple-Silicon laptop, and a 72-billion-parameter edition that shows what “best possible” separation looks like. For every text we clusterize the embeddings into 2 or 3 groups, drop them into UMAP, and let k-means decide where the writing styles part company.
+
+We validate the method on two ground-truth tasks: 3800 Donald Trump’s Android-vs-iPhone tweets and 24 scripted-vs-impromptu speeches. While the two approaches both spot the authorial fingerprint, the embeddings draw cleaner, much more separated clusters, especially when the case gets more complicated.  On a smaller number of much longer speeches, those dictionary counts collapse into noise, but even the mid-sized encoder keeps the scripted and improvised talks in largely distinct UMAP islands.
+
+The purple island on the right is dominated by iPhone tweets, while the green island on the left is almost entirely Android. Embeddings separate devices more crisply, as opposed to dictionary features.
+Figure 1. UMAP projection of tweet embeddings (Qwen 2.5 72B) clustered into three groups. Points are coloured by k‑means cluster (green = Cluster 1, orange = Cluster 2, purple = Cluster 3) and shaped by device (● Android, + iPhone).
+![](/assets/qwen72b_tweets_3cl_100dim.png)
+
+Figure 2. UMAP projection of speech embeddings (Roberta) clustered into two groups. Points are coloured by the usage of teleprompter (blue = Not Used, orange = Used).
+![](/assets/UMAP Projection by Teleprompter Usage Roberta.png)
+We then plan to push apply our approach on 1000 Hungarian speeches by Viktor Orbán, where true authorship is unknown. By contrasting classic stylometry with progressively larger LLM encoders, we hope to see  the speech writers
+
