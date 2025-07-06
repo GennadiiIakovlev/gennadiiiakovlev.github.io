@@ -3,7 +3,7 @@ title: "Bio"
 layout: single
 author_profile: true
 ---
-I am a political scientist adopting large language models (LLMs) to address questions in political science. I am a post-doc at the Center for Social Studies, Eötvös Loránd University (ELTE) in Budapest. Before this, I held post-doctoral positions at the Democracy Institute’s Global Foresight for Democracy and Development Programme (Colombo Hub) and at the Institute for Advanced Study, Central European University.
+I am a political scientist adopting large language models (LLMs) to address questions in political science. I am a post-doc at the Center for Social Studies, Eötvös Loránd University (ELTE) in Budapest. Before this, I held post-doctoral positions at the Democracy Institute’s Global Forum on Democracy and Development (Colombo Hub) and at the Institute for Advanced Study, Central European University.
 
 I earned my PhD in Political Science from the European University Institute. I have designed and taught courses on LLM applications and regime change at Bard College, Heinrich-Heine-Universität Düsseldorf, TU Darmstadt, the European University at Saint Petersburg, and the University of Colombo.
 
