@@ -19,7 +19,8 @@ This graph shows which target age (calculated from application content using ari
 
 **Stylometry Meets Transformer Embeddings**
 
-*I develop this project together with Levente Littvay -- my mentor since my move to Budapest.*
+
+*I develop this project together with [Levente Littvay](https://levente.littvay.hu) -- my mentor since my move to Budapest.*
 
 Political speeches, tweets, and press releases often come from a team of ghost‑writers. Stylometry—the science of measuring writing style —has long tried to unmask real authors, but the field is being revolutionized by large language models (LLMs). Can off‑the‑shelf embeddings of state-of-the art transformer LLMs sharpen our ability to assign (or dispute) authorship?
 
