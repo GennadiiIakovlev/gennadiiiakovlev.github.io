@@ -1,6 +1,6 @@
 title: "Gennadii Iakovlev"
-description: "Political scientist | Elite rhetoric, autocratization"
+description: "Political scientist | Text as Data, Polarization, Autocratization"
 url: "https://gennadiiiakovlev.github.io"
-remote_theme: "mmistakes/minimal-mistakes"
-minimal_mistakes_skin: "default"
+theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: "dark"
 plugins: [jekyll-feed, jekyll-seo-tag, jekyll-include-cache]
