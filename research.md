@@ -5,7 +5,8 @@ layout: single
 ---
 
 **(De-)politicization in authoritarian contexts: a
-state - civil society perspective** --
+state - civil society perspective**
+
 Francesca Chiarvesio--postdoctoral fellow at the University of Bern--and I set out to understand whether Russia’s 
 Presidential Grants programme rewards civil-society organisations (CSOs) for echoing the Kremlin’s conservative, patriotic rhetoric. We scraped roughly 150,000 project applications (successful and unsuccessful) submitted between 2017 and 2024, linked them to organisational data, and then used large-language-model coding plus fixed-effects logistic regression to see which factors actually predict who gets funded. Along the way we built novel scales, including a "patriotic-values” index and an estimated age of each project’s target group, to capture the ideological and demographic texture of CSO demands.
 
@@ -17,6 +18,7 @@ This graph shows which target age (calculated from application content using ari
 ![This graph shows which target age (calculated from application content using aritificial intelligence) is more exposed to state ideology. Those are not yong children, but teenagers and students that are mostly exposed.](/assets/targ_age_to_target_audience.png)
 
 **Stylometry Meets Transformer Embeddings**
+
 *I develop this project together with Levente Littvay -- my mentor since my move to Budapest.*
 
 Political speeches, tweets, and press releases often come from a team of ghost‑writers. Stylometry—the science of measuring writing style —has long tried to unmask real authors, but the field is being revolutionized by large language models (LLMs). Can off‑the‑shelf embeddings of state-of-the art transformer LLMs sharpen our ability to assign (or dispute) authorship?
