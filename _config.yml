@@ -2,7 +2,7 @@ title: "Gennadii Iakovlev"
 description: "Political scientist | Text as Data, Polarization, Autocratization"
 url: "https://gennadiiiakovlev.github.io"
 theme: minimal-mistakes-jekyll
-minimal_mistakes_skin: "dark"
+minimal_mistakes_skin: "default"
 plugins: [jekyll-feed, jekyll-seo-tag, jekyll-include-cache]
 
 # Site Author
