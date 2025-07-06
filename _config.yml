@@ -1,11 +1,12 @@
 title: "Gennadii Iakovlev"
 description: "Political scientist | Text as Data, Polarization, Autocratization"
+
+keywords: text as data, natural language processing, large language models, artificial intelligence, text mining, polarization, autocratization, democratization,
+
 url: "https://gennadiiiakovlev.github.io"
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"  # or @latest tag
 minimal_mistakes_skin: "default"
 plugins: [jekyll-feed, jekyll-seo-tag, jekyll-include-cache, jekyll-remote-theme ]
-
-
 
 
 
@@ -14,7 +15,9 @@ author:
   name             : "Gennadii Iakovlev"
   avatar           : /_site/assets/avatar.jpg
   location         : "Budapest, Hungary"
-  email            : gennadii.iakovlev@eui.eu
+  email            : "gennadii.iakovlev@eui.eu"
+  orcid_id: https://orcid.org/0000-0002-8355-6914
+
   
    
 
