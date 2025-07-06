@@ -1,5 +1,7 @@
 main:
-  - title: "Home"
+  - title: "Bio"
     url: /
-  - title: "Research"
+  - title: "Ongoing Projects"
     url: /research/
+  - title: "Publications"
+    url: /publications/
