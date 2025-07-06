@@ -5,9 +5,8 @@ keywords: text as data, natural language processing, large language models, arti
 
 url: "https://gennadiiiakovlev.github.io"
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"  # or @latest tag
-minimal_mistakes_skin: "default"
+minimal_mistakes_skin: "dark"
 plugins: [jekyll-feed, jekyll-seo-tag, jekyll-include-cache, jekyll-remote-theme ]
-
 
 
 # Site Author
@@ -18,7 +17,6 @@ author:
   email            : "gennadii.iakovlev@eui.eu"
   orcid_id: https://orcid.org/0000-0002-8355-6914
 
-  
    
 
 # Site Footer
