@@ -6,7 +6,7 @@ keywords: text as data, natural language processing, large language models, arti
 url: "https://gennadiiiakovlev.github.io"
 remote_theme: "mmistakes/minimal-mistakes@4.24.0"  # or @latest tag
 minimal_mistakes_skin: "dark"
-plugins: [jekyll-feed, jekyll-seo-tag, jekyll-include-cache, jekyll-remote-theme ]
+plugins: [jekyll-feed, jekyll-seo-tag, jekyll-include-cache, jekyll-remote-theme, jekyll-sitemap]
 
 
 # Site Author
