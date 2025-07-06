@@ -7,7 +7,6 @@ author_profile: false
 
 ## Publications
 
-### Journal articles
 
 ### Journal articles
 
@@ -61,7 +60,7 @@ Employs a mixed‑methods design to explain when negotiations between autocrats 
 This one-page guide collects high‑yield primers, tutorials, and “vibe-coding” walkthroughs that help students jump‑start LLM use without heavy coding prerequisites. Highlights include the *Financial Times* interactive *Generative AI* explainer, 3Blue1Brown’s neural‑network visualisation, and chain‑of‑density prompt‑engineering examples.
 
 ### Regime Change: Democratization and Democratic Backsliding (2020)
-*4-day crash-course (15 × 90 min sessions)*  
+*4-day crash-course (15 × 90-min sessions)*  
 [Syllabus](../assets/pdf/regime-change-democratization-and-democratic-backsliding.pdf){:target="_blank"}
 
 **Course description.** Why do some countries democratise while others slide back into authoritarianism? This intensive seminar surveys classic and cutting-edge scholarship on regime types, transitions, hybrid regimes, and the contemporary wave of backsliding.  
