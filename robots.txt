@@ -1,0 +1,6 @@
+# Allow any crawler to fetch everything
+User-agent: *
+Allow: /
+
+# Sitemap (jekyll-sitemap already builds this automatically)
+Sitemap: https://gennadiiiakovlev.github.io/sitemap.xml
