@@ -12,7 +12,7 @@ plugins: [jekyll-feed, jekyll-seo-tag, jekyll-include-cache, jekyll-remote-theme
 # Site Author
 author:
   name             : "Gennadii Iakovlev"
-  avatar           : /_site/assets/avatar.jpg
+  avatar           : /assets/avatar.jpg
   location         : "Budapest, Hungary"
   email            : "gennadii.iakovlev@eui.eu"
   orcid_id: https://orcid.org/0000-0002-8355-6914
