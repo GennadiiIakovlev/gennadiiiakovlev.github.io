@@ -30,5 +30,5 @@ Figure 1. UMAP projection of tweet embeddings (Qwen 2.5 72B) clustered into thre
 
 Figure 2. UMAP projection of speech embeddings (Roberta) clustered into two groups. Points are coloured by the usage of teleprompter (blue = Not Used, orange = Used).
 ![](/assets/UMAP Projection by Teleprompter Usage Roberta.png)
-We then plan to push apply our approach on 1000 Hungarian speeches by Viktor Orbán, where true authorship is unknown. By contrasting classic stylometry with progressively larger LLM encoders, we hope to see  the speech writers
+We then plan to apply our approach on 1000 Hungarian speeches by Viktor Orbán, where true authorship is unknown. By contrasting classic stylometry with progressively larger LLM encoders, we hope to see  the speech writers
 
