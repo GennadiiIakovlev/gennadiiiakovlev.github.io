@@ -2,14 +2,14 @@ title: "Gennadii Iakovlev"
 description: "Political scientist | Text as Data, Polarization, Autocratization"
 url: "https://gennadiiiakovlev.github.io"
 theme: minimal-mistakes-jekyll
-#minimal_mistakes_skin: "default"
+minimal_mistakes_skin: "default"
 plugins: [jekyll-feed, jekyll-seo-tag, jekyll-include-cache]
 
 # Site Author
 author:
   name             : "Gennadii Iakovlev"
   avatar           : /_site/assets/avatar.jpg
-  location         : "Budapest, Hungardy"
+  location         : "Budapest, Hungary"
   email            : gennadii.iakovlev@eui.eu
   
    
@@ -27,19 +27,3 @@ footer:
     - label: "Linkedin"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/gennadii-iakovlev/t"
-
-
-# SEO Related
-google_site_verification :
-bing_site_verification   :
-naver_site_verification  :
-yandex_site_verification :
-baidu_site_verification  :
-
-# Analytics
-analytics:
-  provider               : # false (default), "google", "google-universal", "google-gtag", "custom"
-  google:
-    tracking_id          :
-    anonymize_ip         : # true, false (default)
-
