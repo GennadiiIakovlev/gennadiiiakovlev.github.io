@@ -1,9 +1,13 @@
 title: "Gennadii Iakovlev"
 description: "Political scientist | Text as Data, Polarization, Autocratization"
 url: "https://gennadiiiakovlev.github.io"
-theme: minimal-mistakes-jekyll
+remote_theme: "mmistakes/minimal-mistakes@4.24.0"  # or @latest tag
 minimal_mistakes_skin: "default"
-plugins: [jekyll-feed, jekyll-seo-tag, jekyll-include-cache]
+plugins: [jekyll-feed, jekyll-seo-tag, jekyll-include-cache, jekyll-remote-theme ]
+
+
+
+
 
 # Site Author
 author:
