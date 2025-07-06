@@ -7,6 +7,6 @@ I am a political scientist adopting large language models (LLMs) to address ques
 
 I earned my PhD in Political Science from the European University Institute. I have designed and taught courses on LLM applications and regime change at Bard College, Heinrich-Heine-Universität Düsseldorf, TU Darmstadt, the European University at Saint Petersburg, and the University of Colombo.
 
-My current research develops a novel measure of affective elite polarization. Using two decades of European parliamentary speeches, I fine-tune LLMs to detect how often legislators express in-group liking and out-group dislike, interpreting the context and explaining the cues behind each judgment. The project will produce an open EU-wide—and eventually global—dataset, together with an interactive visualization portal.
+My current research develops a novel measure of affective elite polarization.  I use LLMs to measure how legislators express and out-group dislike, interpreting the context and explaining the cues behind each judgment. Covering two decades of European parliamentary speeches, the project will produce an open EU-wide—and eventually global—dataset, together with an interactive visualization portal.
 
 Earlier in my career, my dissertation traced the conditions under which authoritarian regimes negotiate successful pacted exits, showing that outcomes depend on the organizational capacity of the opposition during talks.
