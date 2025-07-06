@@ -1,5 +1,5 @@
 ---
-title: "Home"
+title: "Bio"
 layout: single
 author_profile: true
 ---
