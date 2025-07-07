@@ -39,7 +39,7 @@ We then plan to apply our approach on 1000 Hungarian speeches by Viktor Orbán, 
 
 
 **Do Terrorist Attacks Shift Parliamentary Rhetoric? Evidence from Germany**
-* **Preliminary findings from an LLM assisted analysis** *
+**Preliminary findings from an LLM assisted analysis** 
 
 *– together with [Gustavo Venturelli](https://venturelligustavo.com)*
 
@@ -49,10 +49,10 @@ We used the corpus of roughly 250,000 speeches delivered in the Bundestag betwee
 
 No statistically meaningful jump appears in either series. The figure below plots weekly averages with 95 % confidence bands; tone before and after each attack overlaps.
 
-*Figure: Weekly average emotional tone of Bundestag speeches that discuss migration policy (gold) and migrants themselves (orange). Shaded bands represent 9  % confidence intervals; vertical red dashed lines mark each terror attack. The grey rectangle shows the 2016 summer recess, illustrating how parliamentary holidays interrupt the time series.*
+*Figure: Weekly average emotional tone of Bundestag speeches that discuss migration policy (gold) and migrants themselves (orange). Shaded bands represent 9 % confidence intervals; vertical red dashed lines mark each terror attack. The grey rectangle shows the 2016 summer recess, illustrating how parliamentary holidays interrupt the time series.*
 ![](/assets/ter-rdd.jpeg)
 
-In Germany, at least, parliamentary rhetoric on migration seems insulated from short term security shocks. Hovewer, one of our for attacks happened during the parliamentary holidays, 
+In Germany, at least, parliamentary rhetoric on migration seems insulated from short term security shocks. Hovewer, one of our for attacks happened during the parliamentary holidays, and the other two in the neighbouring countries. The absence of effect can be caused by insifficient data. 
 
 If confirmed, the finding complicates the common narrative that terrorism automatically hardens elite attitudes toward immigrants. Instead, rhetorical responses may depend on parliamentary calendars, media framing, and the geography of violence. For scholars, the project showcases how off the shelf LLMs can open new frontiers in the systematic study of political speech.
 
