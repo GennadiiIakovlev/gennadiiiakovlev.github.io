@@ -45,7 +45,7 @@ We then plan to apply our approach on 1000 Hungarian speeches by Viktor Orbán, 
 
 Conventional wisdom suggests that dramatic acts of violence, that is terrorism, push politicians toward tougher, often anti immigration, positions. Yet systematic evidence for such rhetorical shifts remains thin. We set out to test the hypothesis in the German Bundestag: Do members of parliament (MPs) become more negative toward immigrants in the immediate aftermath of terrorist attacks?
 
-We used the corpus of roughly 250,000 speeches delivered in the Bundestag between 2014 and 2024. First, we analyzed every parliamentary speech using Large Level Models (LLMs). A lightweight LLM first marked any speech that mentioned migration. ChatGPT 4o was then used to distinguish between the evaluation of how the state handles migration policies and an emotion towards migrants per se. To isolate causal effects we ran a regression discontinuity in time design around four widely covered attacks between 2015 2019, using a ±30 day window atfer each event.
+We used the corpus of roughly 250,000 speeches delivered in the Bundestag between 2014 and 2024. First, we analyzed every parliamentary speech using Large Language Models (LLMs). A lightweight LLM first marked any speech that mentioned migration. ChatGPT 4o was then used to distinguish between the evaluation of how the state handles migration policies and an emotion towards migrants per se. To isolate causal effects we ran a regression discontinuity in time design around four widely covered attacks between 2015 2019, using a ±30 day window atfer each event.
 
 No statistically meaningful jump appears in either series. The figure below plots weekly averages with 95 % confidence bands; tone before and after each attack overlaps.
 
