@@ -37,3 +37,26 @@ The purple island on the right is dominated by iPhone tweets, while the green is
 
 We then plan to apply our approach on 1000 Hungarian speeches by Viktor Orbán, where true authorship is unknown. By contrasting classic stylometry with progressively larger LLM encoders, we hope to see  the speech writers
 
+
+**Do Terrorist Attacks Shift Parliamentary Rhetoric? Evidence from Germany**
+* **Preliminary findings from an LLM assisted analysis** *
+
+*– together with [Gustavo Venturelli](https://venturelligustavo.com)*
+
+Conventional wisdom suggests that dramatic acts of violence, that is terrorism, push politicians toward tougher, often anti immigration, positions. Yet systematic evidence for such rhetorical shifts remains thin. We set out to test the hypothesis in the German Bundestag: Do members of parliament (MPs) become more negative toward immigrants in the immediate aftermath of terrorist attacks?
+
+We used the corpus of roughly 250,000 speeches delivered in the Bundestag between 2014 and 2024. First, we analyzed every parliamentary speech using Large Level Models (LLMs). A lightweight LLM first marked any speech that mentioned migration. ChatGPT 4o was then used to distinguish between the evaluation of how the state handles migration policies and an emotion towards migrants per se. To isolate causal effects we ran a regression discontinuity in time design around four widely covered attacks between 2015 2019, using a ±30 day window atfer each event.
+
+No statistically meaningful jump appears in either series. The figure below plots weekly averages with 95 % confidence bands; tone before and after each attack overlaps.
+
+*Figure: Weekly average emotional tone of Bundestag speeches that discuss migration policy (gold) and migrants themselves (orange). Shaded bands represent 9  % confidence intervals; vertical red dashed lines mark each terror attack. The grey rectangle shows the 2016 summer recess, illustrating how parliamentary holidays interrupt the time series.*
+[Weekly emotional tone in Bundestag speeches around four major European terror attacks](/assets/ter-rdd.jpeg)
+
+In Germany, at least, parliamentary rhetoric on migration seems insulated from short term security shocks. Hovewer, one of our for attacks happened during the parliamentary holidays, 
+
+If confirmed, the finding complicates the common narrative that terrorism automatically hardens elite attitudes toward immigrants. Instead, rhetorical responses may depend on parliamentary calendars, media framing, and the geography of violence. For scholars, the project showcases how off the shelf LLMs can open new frontiers in the systematic study of political speech.
+
+
+
+
+
