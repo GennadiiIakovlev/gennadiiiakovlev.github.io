@@ -50,7 +50,7 @@ We used the corpus of roughly 250,000 speeches delivered in the Bundestag betwee
 No statistically meaningful jump appears in either series. The figure below plots weekly averages with 95 % confidence bands; tone before and after each attack overlaps.
 
 *Figure: Weekly average emotional tone of Bundestag speeches that discuss migration policy (gold) and migrants themselves (orange). Shaded bands represent 9  % confidence intervals; vertical red dashed lines mark each terror attack. The grey rectangle shows the 2016 summer recess, illustrating how parliamentary holidays interrupt the time series.*
-[Weekly emotional tone in Bundestag speeches around four major European terror attacks](/assets/ter-rdd.jpeg)
+![](/assets/ter-rdd.jpeg)
 
 In Germany, at least, parliamentary rhetoric on migration seems insulated from short term security shocks. Hovewer, one of our for attacks happened during the parliamentary holidays, 
 
