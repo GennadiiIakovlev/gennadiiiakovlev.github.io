@@ -18,13 +18,14 @@ Analyses 400 university charters to map three constitutional axes—founder inde
 
 ### Articles under review
 
-**Modernization Theory of Democratic Stability is Over: Structural Conditions of Pre‑ and Post‑2008 Democratic Backsliding** (under review, *Swiss Political Science Review*)  
-Global panel evidence (1986–2022) reveals that classic modernization shields (wealth, regime age) predicted backsliding before 2008, but unemployment became the dominant driver afterwards; a three‑step pattern—affective polarization → party‑system volatility → executive aggrandizement—emerges across waves.
-[PDF](../publication/regime-change-democratization-and-democratic-backsliding.pdf){:target="_blank"}
+**[Modernization Theory of Democratic Stability is Over: Structural Conditions of Pre‑ and Post‑2008 Democratic Backsliding](../publication/Modernization Theory of Democratic Stability is Over.pdf){:target="_blank"}**
 
-**From Pact to Bloodshed: How Protest‑Movement Structures Shaped Two of Ukraine’s Revolutions** (under review, *Europe‑Asia Studies*)  
+(under review, *Swiss Political Science Review*)  
+Global panel evidence (1986–2022) reveals that classic modernization shields (wealth, regime age) predicted backsliding before 2008, but unemployment became the dominant driver afterwards; a three‑step pattern—affective polarization → party‑system volatility → executive aggrandizement—emerges across waves.
+
+**[From Pact to Bloodshed: How Protest‑Movement Structures Shaped Two of Ukraine’s Revolutions](../publication/ukraine.pdf){:target="_blank"}** (under review, *Europe‑Asia Studies*)  
 Compares Ukraine’s 2004 Orange Revolution with the 2014 Euromaidan and shows that a hierarchical, party‑led movement enabled a successful pacted transition in 2004, whereas the decentralized 2014 network structure was not beneficial to negotiations.
-[PDF](../publication/ukraine.pdf){:target="_blank"}
+
 
 ### Dissertation
 
