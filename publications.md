@@ -6,11 +6,13 @@ author_profile: false
 ---
 
 ## Publications
-
+### Preprints
+**[Elite Polarization in European Parliamentary Speeches: a Novel Measurement Approach Using Large Language Models ](https://services.arxiv.org/html/submission/6603427/view)** (ArXiv, 2025)  
+This project introduces a new measure of elite polarization via actor and subject detection using artificial intelligence. I identify when politicians mention one another in parliamentary speeches, note who is speaking and who is being addressed, and assess the emotional temperature behind these evaluations. This maps how elites evaluate their various out-parties, allowing us to create an index of mutual out-party hostility, that is, elite polarization. 
 
 ### Journal articles
 
-**[Preconditions for Pacted Transitions](https://doi.org/10.1017/S1755773922000273)** (European Political Science Review, 2022)  
+**[Preconditions for Pacted Transitions](https://doi.org/10.1017/S1755773922000273)** (European Political Science Review, 2023)  
 Draws on a new dataset of 45 negotiation attempts to show that successful democratising pacts arise where oppositions possess strong organisational capacity, typically via nationwide trade unions or the Catholic Church.
 
 **[From Partnerships to Bureaucracies: The Constitutional Evolution of Russian Universities](https://ideas.repec.org/a/nos/voprob/2018i3p120-145.html)** (*Voprosy Obrazovaniya / Educational Studies Moscow*, 2018, with M. Sokolov & S. Lopatina)  
