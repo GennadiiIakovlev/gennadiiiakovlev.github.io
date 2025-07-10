@@ -7,7 +7,7 @@ author_profile: false
 
 ## Publications
 ### Preprints
-**[Elite Polarization in European Parliamentary Speeches: a Novel Measurement Approach Using Large Language Models ](https://services.arxiv.org/html/submission/6603427/view)** (ArXiv, 2025)  
+**[Elite Polarization in European Parliamentary Speeches: a Novel Measurement Approach Using Large Language Models ](https://doi.org/10.48550/arXiv.2507.06658)** (ArXiv, 2025)  
 This project introduces a new measure of elite polarization via actor and subject detection using artificial intelligence. I identify when politicians mention one another in parliamentary speeches, note who is speaking and who is being addressed, and assess the emotional temperature behind these evaluations. This maps how elites evaluate their various out-parties, allowing us to create an index of mutual out-party hostility, that is, elite polarization. 
 
 ### Journal articles
