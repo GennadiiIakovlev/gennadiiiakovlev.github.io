@@ -7,8 +7,7 @@ layout: single
 
 **Stylometry Meets Transformer Embeddings**
 
-
-*project together with [Levente Littvay](https://levente.littvay.hu) -- my mentor since my move to Budapest.*
+*together with [Levente Littvay](https://levente.littvay.hu) -- my mentor since my move to Budapest.*
 
 Political speeches, tweets, and press releases often come from a team of ghost‑writers. Stylometry—the science of measuring writing style —has long tried to unmask real authors, but the field is being revolutionized by large language models (LLMs). Can off‑the‑shelf embeddings of state-of-the art transformer LLMs sharpen our ability to assign (or dispute) authorship?
 
@@ -26,6 +25,7 @@ The purple island on the right is dominated by iPhone tweets, while the green is
 We then plan to apply our approach on 1000 Hungarian speeches by Viktor Orbán, where true authorship is unknown. By contrasting classic stylometry with progressively larger LLM encoders, we hope to see  the speech writers.
 
 **(De-)politicization in authoritarian contexts: a state - civil society perspective**
+
 *together with Francesca Chiarvesio -- postdoctoral fellow at the University of Bern*
 
 We are  set out to understand whether Russia’s Presidential Grants programme rewards civil-society organisations (CSOs) for echoing the Kremlin’s conservative, patriotic rhetoric. We scraped roughly 150,000 project applications (successful and unsuccessful) submitted between 2017 and 2024, linked them to organisational data, and then used large-language-model coding plus fixed-effects logistic regression to see which factors actually predict who gets funded. Along the way we built novel scales, including a "patriotic-values” index and an estimated age of each project’s target group, to capture the ideological and demographic texture of CSO demands.
