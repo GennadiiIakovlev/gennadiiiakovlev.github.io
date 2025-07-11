@@ -44,9 +44,11 @@ Employs a mixed‑methods design to explain when negotiations between autocrats 
 *4-week intensive seminar*  
 [Syllabus](../assets/pdf/llm-syllabus.pdf){:target="_blank"}
 
-**Course description.** Recent breakthroughs in NLP and the public release of powerful LLMs such as GPT-4 opened fresh avenues for automated text analysis in political science. Over four weeks we cover theory, hands-on applications, and ethical considerations, equipping students to design their own LLM-driven projects.  
+**Course description** 
+Recent breakthroughs in NLP and the public release of powerful LLMs such as GPT-4 opened fresh avenues for automated text analysis in political science. Over four weeks we cover theory, hands-on applications, and ethical considerations, equipping students to design their own LLM-driven projects.  
 
-**Learning outcomes.** By the end of the course students will be able to:  
+**Learning outcomes**
+By the end of the course students will be able to:  
 1. Explain the architecture of modern LLMs and key NLP concepts.  
 2. Distinguish major LLM techniques relevant to political text (classification, sentiment, topic modelling, entity recognition).  
 3. Apply LLM tools to real-world corpora such as speeches or social-media posts.  
@@ -66,11 +68,13 @@ This one-page guide collects high‑yield primers, tutorials, and “vibe-coding
 *4-day crash-course (15 × 90-min sessions)*  
 [Syllabus](../assets/pdf/regime-change-democratization-and-democratic-backsliding.pdf){:target="_blank"}
 
-**Course description.** Why do some countries democratise while others slide back into authoritarianism? This intensive seminar surveys classic and cutting-edge scholarship on regime types, transitions, hybrid regimes, and the contemporary wave of backsliding.  
+**Course description.** 
+Why do some countries democratise while others slide back into authoritarianism? This intensive seminar surveys classic and cutting-edge scholarship on regime types, transitions, hybrid regimes, and the contemporary wave of backsliding.  
 
-**Learning outcomes.** Participants will be able to:  
+**Learning outcomes.** 
+Participants will be able to:  
 * recognise ideal-typical regimes and diagnose empirical cases;  
 * apply theoretical frameworks to real-world country trajectories;  
 * analyse the drivers of autocratic stability and democratic erosion;  
-* critically engage with regime-change literature; and  
+* critically engage with regime-change literature;
 * estimate prospects for democratisation or backsliding.
