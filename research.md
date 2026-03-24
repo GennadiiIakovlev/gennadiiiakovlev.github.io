@@ -8,9 +8,9 @@ layout: single
 
 **Authoritarian resource distribution to civil society and political legitimation in Russia**
 
-*[preprint is here](https://osf.io/preprints/socarxiv/q25nf_v2)*
+*preprint is [here](https://osf.io/preprints/socarxiv/q25nf_v2)*
 
-*together with [Francesca Chiarvesio] (https://scholar.google.com/citations?user=bCkYwusAAAAJ&hl=ru) -- postdoctoral fellow at the University of Bern*
+*together with [Francesca Chiarvesio](https://scholar.google.com/citations?user=bCkYwusAAAAJ&hl=ru) -- postdoctoral fellow at the University of Bern*
 
 Authoritarian resource distribution to civil society andpolitical legitimation in RussiaFrancesca Chiarvesio and Gennadii IakovlevAbstractHow do authoritarian legitimation strategies shape the allocation of state resourcesto civil society organizations, and what kind of alignment between state and civil soci-ety’s action do they produce? This article addresses these questions by analyzing Rus-sia’s Presidential Grants. By operationalizing the regime’s ideology and performance-based legitimation strategies through state grant redistribution, this work reveals ameta-regulated, state-engineered non-profit sector. The government reshapes civil so-ciety’s behavior primarily through centralized rules and standards rather than corpo-ratism and co-option. In addition, the findings challenge the expectation that performance-based legitimation strategies straightforwardly produce depoliticization and highlightthe underexamined role of technocratic governance in sustaining authoritarian resilience.The analysis is based on computational text analysis of over 150,000 grant applicationssubmitted by civil society for project funding between 2017 and the first half of 2025.
 ![This graph shows the factors responsible for the receptance and non-receptance of grants](/assets/presi_ame.png)
