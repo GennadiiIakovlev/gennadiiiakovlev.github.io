@@ -210,10 +210,16 @@ td.num{text-align:right; font-variant-numeric:tabular-nums}
   <section class="view" id="view-country">
     <div class="card" style="margin-bottom:16px">
       <h2 class="view-title">Country profile</h2>
-      <p class="view-sub">Every indicator for a single country over time.</p>
+      <p class="view-sub">Each party's trajectory within a country — out-party evaluation by default. Countries without a party breakdown show the national aggregate.</p>
     </div>
     <div class="card controls">
       <div class="ctrl"><label>Country</label><select id="co-cc"></select></div>
+      <div class="ctrl"><label>View</label>
+        <div class="seg" id="co-level">
+          <button data-l="party" class="active">By party</button>
+          <button data-l="country">Country total</button>
+        </div></div>
+      <div class="ctrl" id="co-var-group"><label>Indicator</label><select id="co-var"></select></div>
     </div>
     <div class="card"><div id="co-lines" class="chart" style="height:480px"></div></div>
   </section>
@@ -465,21 +471,59 @@ function renderTrends(){
 }
 
 /* ── country ────────────────────────────────────────────────────── */
+let coLevel="party";   // "party" = per-party lines; "country" = national aggregate, all indicators
 function renderCountry(){
   const cc=document.getElementById("co-cc").value;
-  const traces=[];
-  VARS.forEach((v)=>{
+  if(coLevel==="country"){
+    // national aggregate — all indicators (in-party / out-party / combined / mean affect)
+    const traces=[];
+    VARS.forEach((v)=>{
+      const s=((DATA.series[v]||{})[cc]||[]).filter(d=>d.value!=null);
+      if(!s.length) return;
+      traces.push({x:s.map(d=>d.year), y:s.map(d=>d.value), mode:"lines+markers",
+        name:DATA.varDefs[v].label, line:{color:DATA.varDefs[v].color, width:2.4}, marker:{size:6}});
+    });
+    Plotly.newPlot("co-lines", traces, baseLayout({
+      title:{text:CCMETA[cc].name+" — all indicators (national aggregate)", font:{size:15,color:NAVY}},
+      margin:{t:46,r:18,b:54,l:62},
+      yaxis:{title:"Evaluation / affect (−100…100)", gridcolor:"#eef2f6", zerolinecolor:"#dde4ec"},
+      xaxis:{title:"Year", dtick:1, gridcolor:"#eef2f6"}
+    }), PCONF);
+    return;
+  }
+  // per-party view for one indicator (default: out-party evaluation)
+  const v=document.getElementById("co-var").value;
+  const label=DATA.varDefs[v].label;
+  const rowsP=PARTY_PANEL.filter(r=>r.iso3===cc && r.variable===label && r.value!=null);
+  if(rowsP.length){
+    const byParty={};
+    for(const r of rowsP){ (byParty[r.party]=byParty[r.party]||[]).push(r); }
+    const mc=p=>byParty[p].reduce((a,r)=>a+(r.mc||0),0);
+    const parties=Object.keys(byParty).sort((a,b)=>mc(b)-mc(a));
+    const CAP=16, shown=parties.slice(0,CAP);
+    const traces=shown.map((p,i)=>{
+      const s=byParty[p].slice().sort((a,b)=>a.year-b.year);
+      return {x:s.map(d=>d.year), y:s.map(d=>d.value), mode:"lines+markers",
+        name:p, line:{color:PALETTE[i%PALETTE.length], width:2}, marker:{size:5}};
+    });
+    const extra = parties.length>CAP ? `  (top ${CAP} of ${parties.length} parties by volume)` : "";
+    Plotly.newPlot("co-lines", traces, baseLayout({
+      title:{text:CCMETA[cc].name+" — "+label+" by party"+extra, font:{size:15,color:NAVY}},
+      margin:{t:46,r:18,b:54,l:62},
+      yaxis:{title:label, gridcolor:"#eef2f6", zerolinecolor:"#dde4ec"},
+      xaxis:{title:"Year", dtick:1, gridcolor:"#eef2f6"}
+    }), PCONF);
+  } else {
+    // no party breakdown for this country — fall back to the national line
     const s=((DATA.series[v]||{})[cc]||[]).filter(d=>d.value!=null);
-    if(!s.length) return;
-    traces.push({x:s.map(d=>d.year), y:s.map(d=>d.value), mode:"lines+markers",
-      name:DATA.varDefs[v].label, line:{color:DATA.varDefs[v].color, width:2.2}, marker:{size:6}});
-  });
-  Plotly.newPlot("co-lines", traces, baseLayout({
-    title:{text:CCMETA[cc].name+" — indicators over time", font:{size:15,color:NAVY}},
-    margin:{t:46,r:18,b:54,l:62},
-    yaxis:{title:"Evaluation / affect (−100…100)", gridcolor:"#eef2f6", zerolinecolor:"#dde4ec"},
-    xaxis:{title:"Year", dtick:1, gridcolor:"#eef2f6"}
-  }), PCONF);
+    Plotly.newPlot("co-lines", [{x:s.map(d=>d.year), y:s.map(d=>d.value), mode:"lines+markers",
+      name:label, line:{color:DATA.varDefs[v].color, width:2.4}, marker:{size:6}}], baseLayout({
+      title:{text:CCMETA[cc].name+" — "+label+" (no party breakdown available)", font:{size:15,color:NAVY}},
+      margin:{t:46,r:18,b:54,l:62},
+      yaxis:{title:label, gridcolor:"#eef2f6", zerolinecolor:"#dde4ec"},
+      xaxis:{title:"Year", dtick:1, gridcolor:"#eef2f6"}
+    }), PCONF);
+  }
 }
 
 /* ── compare (scatter) ──────────────────────────────────────────── */
@@ -640,7 +684,15 @@ function show(name){
 
   // country
   fillCcSelect(document.getElementById("co-cc"), false);
+  fillVarSelect(document.getElementById("co-var"), false);   // default = first var = out-party evaluation
   document.getElementById("co-cc").addEventListener("change", renderCountry);
+  document.getElementById("co-var").addEventListener("change", ()=>{ if(current==="country") renderCountry(); });
+  document.querySelectorAll("#co-level button").forEach(b=>b.onclick=()=>{
+    coLevel=b.dataset.l;
+    document.querySelectorAll("#co-level button").forEach(x=>x.classList.toggle("active", x===b));
+    document.getElementById("co-var-group").style.display = coLevel==="country" ? "none" : "";
+    renderCountry();
+  });
 
   // compare
   fillVarSelect(document.getElementById("sc-x"), false);
