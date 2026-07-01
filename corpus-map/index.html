@@ -264,10 +264,10 @@ td.num{text-align:right; font-variant-numeric:tabular-nums}
       <div class="ctrl"><label>Country</label><select id="co-cc"></select></div>
       <div class="ctrl"><label>View</label>
         <div class="seg" id="co-level">
-          <button data-l="party" class="active">By party</button>
-          <button data-l="country">Country total</button>
+          <button data-l="country" class="active">Country total</button>
+          <button data-l="party">By party</button>
         </div></div>
-      <div class="ctrl" id="co-var-group"><label>Indicator</label><select id="co-var"></select></div>
+      <div class="ctrl" id="co-var-group" style="display:none"><label>Indicator</label><select id="co-var"></select></div>
     </div>
     <div class="card"><div id="co-lines" class="chart" style="height:480px"></div></div>
   </section>
@@ -519,7 +519,7 @@ function renderTrends(){
 }
 
 /* ── country ────────────────────────────────────────────────────── */
-let coLevel="party";   // "party" = per-party lines; "country" = national aggregate, all indicators
+let coLevel="country";   // default = national aggregate (always full span); "party" = per-party lines (patchy coverage)
 function renderCountry(){
   const cc=document.getElementById("co-cc").value;
   if(coLevel==="country"){
