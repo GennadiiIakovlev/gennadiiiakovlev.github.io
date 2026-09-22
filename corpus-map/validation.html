@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Validation against survey polarization · Parliamentary Polarization Map</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js" charset="utf-8"></script>
+<style>
+:root{--navy:#16324f;--navy-2:#1f4a6f;--ink:#1c2733;--muted:#5b6b7b;--line:#e3e8ee;--bg:#eef2f6;--card:#fff;--accent:#e0954a;
+  --shadow:0 1px 2px rgba(16,40,64,.06),0 8px 24px rgba(16,40,64,.07)}
+*{box-sizing:border-box} html,body{margin:0}
+body{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--ink);background:var(--bg);
+  background-image:radial-gradient(1200px 600px at 80% -10%,#dde8f1 0%,transparent 60%);-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.topbar{position:sticky;top:0;z-index:50;background:linear-gradient(120deg,var(--navy) 0%,var(--navy-2) 100%);color:#fff;box-shadow:0 2px 16px rgba(16,40,64,.18)}
+.topbar-inner{max-width:1240px;margin:0 auto;padding:0 22px;display:flex;align-items:center;gap:24px;height:62px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;font-size:16px;letter-spacing:.2px;white-space:nowrap;text-decoration:none}
+.brand .crab{font-size:21px;line-height:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,.25))}
+.tabs{display:flex;gap:2px;margin-left:auto}
+.tab{color:rgba(255,255,255,.72);font-size:13.5px;font-weight:500;padding:8px 13px;border-radius:8px;text-decoration:none;white-space:nowrap}
+.tab:hover{color:#fff;background:rgba(255,255,255,.10)} .tab.active{color:var(--navy);background:#fff;font-weight:600}
+main{max-width:1240px;margin:0 auto;padding:26px 22px 60px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:20px}
+.card+.card{margin-top:18px}
+h1,h2,h3{margin:0}
+.view-title{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:27px;letter-spacing:-.3px;color:var(--navy)}
+.view-sub{color:var(--muted);font-size:14px;margin-top:5px;max-width:760px;line-height:1.55}
+h3{color:var(--navy);font-size:18px;margin-bottom:10px}
+p{line-height:1.6;max-width:78ch;margin:8px 0}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin:16px 0 4px}
+.stat{background:var(--bg);border-radius:12px;padding:12px 14px}
+.stat .l{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.6px;color:var(--muted)}
+.stat .v{font-size:26px;font-weight:700;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1.2;margin-top:2px}
+.stat .s{font-size:12px;color:var(--muted);margin-top:2px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px} @media(max-width:900px){.two{grid-template-columns:1fr}}
+.chart{height:420px;width:100%}
+.controls{display:flex;flex-wrap:wrap;gap:16px 22px;align-items:center;margin:0 0 10px}
+.pill{display:inline-flex;align-items:center;gap:7px;font-size:13px;color:var(--muted)}
+.pill input{accent-color:var(--navy)}
+.table-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13.5px}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);font-weight:600}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.note{background:var(--bg);border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 16px;margin:14px 0;font-size:14px;line-height:1.55}
+.footer{max-width:1240px;margin:0 auto;padding:22px;color:#8693a1;font-size:12px;text-align:center;line-height:1.7}
+.footer .src{color:var(--navy);font-weight:600}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;background:var(--bg);padding:1px 5px;border-radius:4px}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topbar-inner">
+  <a class="brand" href="index.html"><span class="crab">&#129408;</span> Parliamentary Polarization Map</a>
+  <nav class="tabs"><a class="tab" href="index.html">Atlas</a><a class="tab active" href="validation.html">Validation</a></nav>
+</div></header>
+
+<main>
+  <section class="card">
+    <h1 class="view-title">Does speech negativity track what voters feel?</h1>
+    <p class="view-sub">Convergent validity of the parliamentary out-party measure against Orhan's (2022) survey-based
+      Affective Polarization Index (API), built from CSES like-dislike scores across 52 democracies and 178 elections.
+      Each survey observation is paired with the parliamentary speech of the legislature that preceded that election.</p>
+    <div class="stats" id="stats"></div>
+  </section>
+
+  <section class="card">
+    <div class="controls">
+      <h3 style="margin:0">Election-level observations and country means</h3>
+      <label class="pill" style="margin-left:auto"><input type="checkbox" id="exw"> exclude Westminster chambers (AUS CAN GBR NZL USA)</label>
+    </div>
+    <div class="two">
+      <div><div id="ch-levels" class="chart"></div></div>
+      <div><div id="ch-means" class="chart"></div></div>
+    </div>
+    <p class="view-sub">x: out-party negativity in parliamentary speech, the mention-weighted mean of the negated out-party
+      evaluation over the legislature preceding the election (previous election + 1 to election year − 1; five-year fallback when the
+      previous election is more than six years back; cells with at least 50 out-party mentions). y: Orhan's API for that election.
+      Dashed line: least-squares fit. Hover for the country and year.</p>
+  </section>
+
+  <section class="card">
+    <h3>The Westminster offset</h3>
+    <p>Parliaments in the Westminster tradition talk about the other side roughly twice as harshly as the rest of the sample
+      while their voters report slightly milder polarization. All five sit below the fitted line, and a Westminster dummy absorbs about one
+      full survey point. Question Period and Prime Minister's Questions are adversarial by design: the opposition's institutional role in
+      the chamber is to attack the government, so spoken hostility runs ahead of how citizens feel about each other's parties.
+      Consensus systems produce the opposite gap (Chile, the low outlier, is the clearest case). We read this as a real institutional
+      difference the speech measure registers faithfully, not as measurement error, and report the pooled and ex-Westminster figures side by side.</p>
+    <div class="table-wrap"><table id="tb-means"><thead><tr><th>Country</th><th class="n">Elections</th><th class="n">Speech negativity</th><th class="n">Survey API</th><th class="n">Residual</th></tr></thead><tbody></tbody></table></div>
+  </section>
+
+  <section class="card">
+    <h3>Robustness to the pairing window</h3>
+    <p>The preceding-legislature rule is the paper's specification. Alternatives that centre a symmetric window on the election year, or
+      include the election year itself, correlate less well on both this and earlier builds of the panel: post-election speech cannot have
+      shaped pre-election attitudes, and it dilutes the signal.</p>
+    <div class="table-wrap"><table><thead><tr><th>Window</th><th class="n">n elections</th><th class="n">r</th><th class="n">n countries</th><th class="n">r, country means</th></tr></thead><tbody id="tb-grid"></tbody></table></div>
+    <div class="note"><b>Data vintage.</b> Panel build <span id="stamp"></span>; Orhan's API values from the 2022 <i>Democratization</i> article's replication data.
+      Countries in Orhan's set whose parliaments we do not yet hold for the relevant years are absent from the figure (the biggest gaps are
+      Korea, France, Peru, Poland before 2011, Taiwan and Japan; acquisition is in progress). Every number on this page is recomputed from the
+      merged table when the page is built, so the figure and the statistics cannot drift apart.</div>
+  </section>
+</main>
+
+<footer class="footer">
+  <span class="src">affective_crab</span> parliamentary corpus project · text mining done with Gemma26bA4; Authored by Gennadii Iakovlev ·
+  Orhan, Y. E. (2022) "The relationship between affective polarization and democratic backsliding", <i>Democratization</i> 29(4).
+</footer>
+
+<script>
+const D = {"points": [{"iso3": "AUS", "name": "Australia", "year": 2004, "api": 4.37, "opneg": 15.31}, {"iso3": "AUS", "name": "Australia", "year": 2007, "api": 4.7, "opneg": 12.995}, {"iso3": "AUS", "name": "Australia", "year": 2013, "api": 4.862, "opneg": 10.422}, {"iso3": "AUS", "name": "Australia", "year": 2019, "api": 4.795, "opneg": 11.223}, {"iso3": "AUT", "name": "Austria", "year": 2008, "api": 4.103, "opneg": 4.491}, {"iso3": "AUT", "name": "Austria", "year": 2013, "api": 4.014, "opneg": 6.19}, {"iso3": "AUT", "name": "Austria", "year": 2017, "api": 4.382, "opneg": 6.318}, {"iso3": "BRA", "name": "Brazil", "year": 2002, "api": 3.221, "opneg": 5.401}, {"iso3": "BRA", "name": "Brazil", "year": 2006, "api": 3.724, "opneg": 4.242}, {"iso3": "BRA", "name": "Brazil", "year": 2010, "api": 4.255, "opneg": 1.08}, {"iso3": "BRA", "name": "Brazil", "year": 2014, "api": 4.111, "opneg": -0.128}, {"iso3": "BRA", "name": "Brazil", "year": 2018, "api": 4.272, "opneg": 9.956}, {"iso3": "CAN", "name": "Canada", "year": 1997, "api": 4.626, "opneg": 13.198}, {"iso3": "CAN", "name": "Canada", "year": 2004, "api": 4.224, "opneg": 12.541}, {"iso3": "CAN", "name": "Canada", "year": 2008, "api": 4.516, "opneg": 15.069}, {"iso3": "CAN", "name": "Canada", "year": 2011, "api": 4.058, "opneg": 14.264}, {"iso3": "CAN", "name": "Canada", "year": 2015, "api": 3.883, "opneg": 15.145}, {"iso3": "CHE", "name": "Switzerland", "year": 2003, "api": 4.549, "opneg": 2.605}, {"iso3": "CHE", "name": "Switzerland", "year": 2007, "api": 3.688, "opneg": 3.768}, {"iso3": "CHE", "name": "Switzerland", "year": 2011, "api": 4.1, "opneg": 3.256}, {"iso3": "CHL", "name": "Chile", "year": 1999, "api": 3.93, "opneg": 1.152}, {"iso3": "CHL", "name": "Chile", "year": 2005, "api": 4.551, "opneg": 1.555}, {"iso3": "CHL", "name": "Chile", "year": 2009, "api": 4.616, "opneg": 3.393}, {"iso3": "CHL", "name": "Chile", "year": 2017, "api": 4.22, "opneg": 1.833}, {"iso3": "CZE", "name": "Czechia", "year": 1996, "api": 5.354, "opneg": 6.233}, {"iso3": "CZE", "name": "Czechia", "year": 2002, "api": 5.111, "opneg": 7.525}, {"iso3": "CZE", "name": "Czechia", "year": 2006, "api": 5.628, "opneg": 9.286}, {"iso3": "CZE", "name": "Czechia", "year": 2010, "api": 5.245, "opneg": 10.437}, {"iso3": "CZE", "name": "Czechia", "year": 2013, "api": 5.229, "opneg": 13.895}, {"iso3": "DEU", "name": "Germany", "year": 1998, "api": 4.253, "opneg": 3.275}, {"iso3": "DEU", "name": "Germany", "year": 2002, "api": 4.252, "opneg": 3.757}, {"iso3": "DEU", "name": "Germany", "year": 2005, "api": 4.254, "opneg": 2.987}, {"iso3": "DEU", "name": "Germany", "year": 2009, "api": 3.797, "opneg": 1.769}, {"iso3": "DEU", "name": "Germany", "year": 2013, "api": 4.1, "opneg": 2.173}, {"iso3": "DEU", "name": "Germany", "year": 2017, "api": 3.878, "opneg": 0.58}, {"iso3": "DNK", "name": "Denmark", "year": 1998, "api": 4.381, "opneg": 4.569}, {"iso3": "DNK", "name": "Denmark", "year": 2001, "api": 3.944, "opneg": 5.488}, {"iso3": "DNK", "name": "Denmark", "year": 2007, "api": 4.242, "opneg": 5.86}, {"iso3": "ESP", "name": "Spain", "year": 1996, "api": 5.133, "opneg": 2.679}, {"iso3": "ESP", "name": "Spain", "year": 2000, "api": 4.377, "opneg": 6.588}, {"iso3": "ESP", "name": "Spain", "year": 2004, "api": 4.869, "opneg": 8.086}, {"iso3": "ESP", "name": "Spain", "year": 2008, "api": 5.02, "opneg": 7.549}, {"iso3": "FIN", "name": "Finland", "year": 2003, "api": 3.484, "opneg": 6.139}, {"iso3": "FIN", "name": "Finland", "year": 2007, "api": 3.666, "opneg": 6.341}, {"iso3": "FIN", "name": "Finland", "year": 2011, "api": 4.02, "opneg": 5.847}, {"iso3": "FIN", "name": "Finland", "year": 2015, "api": 3.881, "opneg": 6.485}, {"iso3": "GBR", "name": "United Kingdom", "year": 1997, "api": 4.127, "opneg": 13.438}, {"iso3": "GBR", "name": "United Kingdom", "year": 2001, "api": 3.078, "opneg": 11.509}, {"iso3": "GBR", "name": "United Kingdom", "year": 2005, "api": 3.886, "opneg": 7.695}, {"iso3": "GBR", "name": "United Kingdom", "year": 2015, "api": 4.485, "opneg": 10.496}, {"iso3": "GRC", "name": "Greece", "year": 2009, "api": 4.542, "opneg": 11.403}, {"iso3": "GRC", "name": "Greece", "year": 2012, "api": 5.439, "opneg": 7.697}, {"iso3": "GRC", "name": "Greece", "year": 2015, "api": 5.111, "opneg": 8.461}, {"iso3": "HKG", "name": "Hong Kong", "year": 2000, "api": 1.905, "opneg": 5.392}, {"iso3": "HKG", "name": "Hong Kong", "year": 2012, "api": 3.528, "opneg": 0.333}, {"iso3": "HKG", "name": "Hong Kong", "year": 2016, "api": 3.745, "opneg": 5.217}, {"iso3": "HRV", "name": "Croatia", "year": 2007, "api": 4.543, "opneg": 4.981}, {"iso3": "HUN", "name": "Hungary", "year": 1998, "api": 5.215, "opneg": 6.419}, {"iso3": "HUN", "name": "Hungary", "year": 2002, "api": 6.587, "opneg": 6.236}, {"iso3": "HUN", "name": "Hungary", "year": 2018, "api": 6.581, "opneg": 11.509}, {"iso3": "ISL", "name": "Iceland", "year": 2016, "api": 3.816, "opneg": 7.54}, {"iso3": "ISR", "name": "Israel", "year": 1996, "api": 4.696, "opneg": 5.13}, {"iso3": "ISR", "name": "Israel", "year": 2003, "api": 4.711, "opneg": 5.361}, {"iso3": "ISR", "name": "Israel", "year": 2006, "api": 4.173, "opneg": 8.082}, {"iso3": "ISR", "name": "Israel", "year": 2013, "api": 4.147, "opneg": 5.711}, {"iso3": "ITA", "name": "Italy", "year": 2018, "api": 5.214, "opneg": 10.57}, {"iso3": "KEN", "name": "Kenya", "year": 2013, "api": 5.571, "opneg": 5.509}, {"iso3": "LVA", "name": "Latvia", "year": 2010, "api": 4.495, "opneg": 4.655}, {"iso3": "LVA", "name": "Latvia", "year": 2014, "api": 4.508, "opneg": 3.459}, {"iso3": "MEX", "name": "Mexico", "year": 2003, "api": 4.487, "opneg": 2.462}, {"iso3": "MEX", "name": "Mexico", "year": 2006, "api": 4.645, "opneg": 4.053}, {"iso3": "MEX", "name": "Mexico", "year": 2009, "api": 3.497, "opneg": 2.989}, {"iso3": "MEX", "name": "Mexico", "year": 2012, "api": 3.481, "opneg": 2.957}, {"iso3": "MEX", "name": "Mexico", "year": 2015, "api": 3.849, "opneg": 4.351}, {"iso3": "NLD", "name": "Netherlands", "year": 1998, "api": 2.661, "opneg": 4.458}, {"iso3": "NLD", "name": "Netherlands", "year": 2002, "api": 2.802, "opneg": 2.884}, {"iso3": "NLD", "name": "Netherlands", "year": 2006, "api": 2.691, "opneg": 4.731}, {"iso3": "NOR", "name": "Norway", "year": 2001, "api": 3.856, "opneg": 4.293}, {"iso3": "NOR", "name": "Norway", "year": 2005, "api": 4.317, "opneg": 3.842}, {"iso3": "NOR", "name": "Norway", "year": 2009, "api": 4.246, "opneg": 4.541}, {"iso3": "NOR", "name": "Norway", "year": 2013, "api": 4.103, "opneg": 5.169}, {"iso3": "NOR", "name": "Norway", "year": 2017, "api": 4.571, "opneg": 3.905}, {"iso3": "NZL", "name": "New Zealand", "year": 1996, "api": 4.305, "opneg": 10.144}, {"iso3": "NZL", "name": "New Zealand", "year": 2002, "api": 4.266, "opneg": 10.477}, {"iso3": "NZL", "name": "New Zealand", "year": 2008, "api": 4.374, "opneg": 10.259}, {"iso3": "NZL", "name": "New Zealand", "year": 2011, "api": 4.51, "opneg": 7.658}, {"iso3": "NZL", "name": "New Zealand", "year": 2014, "api": 4.674, "opneg": 10.049}, {"iso3": "NZL", "name": "New Zealand", "year": 2017, "api": 4.387, "opneg": 6.986}, {"iso3": "POL", "name": "Poland", "year": 2001, "api": 4.525, "opneg": 2.596}, {"iso3": "POL", "name": "Poland", "year": 2007, "api": 4.735, "opneg": 4.733}, {"iso3": "POL", "name": "Poland", "year": 2011, "api": 5.22, "opneg": 5.377}, {"iso3": "PRT", "name": "Portugal", "year": 2009, "api": 4.722, "opneg": 8.529}, {"iso3": "PRT", "name": "Portugal", "year": 2015, "api": 6.143, "opneg": 4.274}, {"iso3": "ROU", "name": "Romania", "year": 2012, "api": 5.755, "opneg": 14.459}, {"iso3": "ROU", "name": "Romania", "year": 2014, "api": 4.529, "opneg": 12.541}, {"iso3": "SRB", "name": "Serbia", "year": 2012, "api": 4.891, "opneg": 7.412}, {"iso3": "SVK", "name": "Slovakia", "year": 2010, "api": 5.141, "opneg": 9.277}, {"iso3": "SVK", "name": "Slovakia", "year": 2016, "api": 5.384, "opneg": 14.274}, {"iso3": "SVN", "name": "Slovenia", "year": 1996, "api": 4.704, "opneg": 3.608}, {"iso3": "SVN", "name": "Slovenia", "year": 2004, "api": 4.215, "opneg": 3.66}, {"iso3": "SVN", "name": "Slovenia", "year": 2008, "api": 5.059, "opneg": 6.4}, {"iso3": "SVN", "name": "Slovenia", "year": 2011, "api": 4.684, "opneg": 5.665}, {"iso3": "SWE", "name": "Sweden", "year": 1998, "api": 4.189, "opneg": 8.769}, {"iso3": "SWE", "name": "Sweden", "year": 2002, "api": 4.191, "opneg": 8.03}, {"iso3": "SWE", "name": "Sweden", "year": 2006, "api": 4.168, "opneg": 8.231}, {"iso3": "SWE", "name": "Sweden", "year": 2014, "api": 4.356, "opneg": 8.669}, {"iso3": "TUR", "name": "Turkey", "year": 2015, "api": 7.348, "opneg": 10.672}, {"iso3": "TUR", "name": "Turkey", "year": 2018, "api": 6.105, "opneg": 12.155}, {"iso3": "USA", "name": "United States", "year": 1996, "api": 3.892, "opneg": 6.199}, {"iso3": "USA", "name": "United States", "year": 2000, "api": 3.72, "opneg": 6.522}, {"iso3": "USA", "name": "United States", "year": 2008, "api": 3.968, "opneg": 7.526}, {"iso3": "USA", "name": "United States", "year": 2012, "api": 4.799, "opneg": 11.335}, {"iso3": "USA", "name": "United States", "year": 2016, "api": 4.723, "opneg": 9.819}, {"iso3": "ZAF", "name": "South Africa", "year": 2009, "api": 5.691, "opneg": 3.618}, {"iso3": "ZAF", "name": "South Africa", "year": 2014, "api": 5.484, "opneg": 9.289}], "means": [{"iso3": "AUS", "name": "Australia", "n": 4, "api": 4.682, "opneg": 12.488, "westminster": true}, {"iso3": "AUT", "name": "Austria", "n": 3, "api": 4.166, "opneg": 5.666, "westminster": false}, {"iso3": "BRA", "name": "Brazil", "n": 5, "api": 3.917, "opneg": 4.11, "westminster": false}, {"iso3": "CAN", "name": "Canada", "n": 5, "api": 4.261, "opneg": 14.043, "westminster": true}, {"iso3": "CHE", "name": "Switzerland", "n": 3, "api": 4.112, "opneg": 3.21, "westminster": false}, {"iso3": "CHL", "name": "Chile", "n": 4, "api": 4.329, "opneg": 1.983, "westminster": false}, {"iso3": "CZE", "name": "Czechia", "n": 5, "api": 5.313, "opneg": 9.475, "westminster": false}, {"iso3": "DEU", "name": "Germany", "n": 6, "api": 4.089, "opneg": 2.424, "westminster": false}, {"iso3": "DNK", "name": "Denmark", "n": 3, "api": 4.189, "opneg": 5.306, "westminster": false}, {"iso3": "ESP", "name": "Spain", "n": 4, "api": 4.85, "opneg": 6.226, "westminster": false}, {"iso3": "FIN", "name": "Finland", "n": 4, "api": 3.763, "opneg": 6.203, "westminster": false}, {"iso3": "GBR", "name": "United Kingdom", "n": 4, "api": 3.894, "opneg": 10.785, "westminster": true}, {"iso3": "GRC", "name": "Greece", "n": 3, "api": 5.031, "opneg": 9.187, "westminster": false}, {"iso3": "HKG", "name": "Hong Kong", "n": 3, "api": 3.059, "opneg": 3.647, "westminster": false}, {"iso3": "HRV", "name": "Croatia", "n": 1, "api": 4.543, "opneg": 4.981, "westminster": false}, {"iso3": "HUN", "name": "Hungary", "n": 3, "api": 6.128, "opneg": 8.055, "westminster": false}, {"iso3": "ISL", "name": "Iceland", "n": 1, "api": 3.816, "opneg": 7.54, "westminster": false}, {"iso3": "ISR", "name": "Israel", "n": 4, "api": 4.432, "opneg": 6.071, "westminster": false}, {"iso3": "ITA", "name": "Italy", "n": 1, "api": 5.214, "opneg": 10.57, "westminster": false}, {"iso3": "KEN", "name": "Kenya", "n": 1, "api": 5.571, "opneg": 5.509, "westminster": false}, {"iso3": "LVA", "name": "Latvia", "n": 2, "api": 4.502, "opneg": 4.057, "westminster": false}, {"iso3": "MEX", "name": "Mexico", "n": 5, "api": 3.992, "opneg": 3.362, "westminster": false}, {"iso3": "NLD", "name": "Netherlands", "n": 3, "api": 2.718, "opneg": 4.024, "westminster": false}, {"iso3": "NOR", "name": "Norway", "n": 5, "api": 4.219, "opneg": 4.35, "westminster": false}, {"iso3": "NZL", "name": "New Zealand", "n": 6, "api": 4.419, "opneg": 9.262, "westminster": true}, {"iso3": "POL", "name": "Poland", "n": 3, "api": 4.827, "opneg": 4.235, "westminster": false}, {"iso3": "PRT", "name": "Portugal", "n": 2, "api": 5.433, "opneg": 6.402, "westminster": false}, {"iso3": "ROU", "name": "Romania", "n": 2, "api": 5.142, "opneg": 13.5, "westminster": false}, {"iso3": "SRB", "name": "Serbia", "n": 1, "api": 4.891, "opneg": 7.412, "westminster": false}, {"iso3": "SVK", "name": "Slovakia", "n": 2, "api": 5.263, "opneg": 11.775, "westminster": false}, {"iso3": "SVN", "name": "Slovenia", "n": 4, "api": 4.665, "opneg": 4.833, "westminster": false}, {"iso3": "SWE", "name": "Sweden", "n": 4, "api": 4.226, "opneg": 8.425, "westminster": false}, {"iso3": "TUR", "name": "Turkey", "n": 2, "api": 6.726, "opneg": 11.413, "westminster": false}, {"iso3": "USA", "name": "United States", "n": 5, "api": 4.22, "opneg": 8.28, "westminster": true}, {"iso3": "ZAF", "name": "South Africa", "n": 2, "api": 5.588, "opneg": 6.454, "westminster": false}], "westminster": ["AUS", "CAN", "GBR", "NZL", "USA"], "stamp": "20260922b", "r": {"levels": 0.307, "means": 0.42, "levels_exw": 0.476, "means_exw": 0.602, "n_levels": 115, "n_means": 35}};
+const W = new Set(D.westminster);
+function pearson(x,y){const n=x.length,mx=x.reduce((a,b)=>a+b,0)/n,my=y.reduce((a,b)=>a+b,0)/n;let sxy=0,sxx=0,syy=0;for(let i=0;i<n;i++){sxy+=(x[i]-mx)*(y[i]-my);sxx+=(x[i]-mx)**2;syy+=(y[i]-my)**2}return sxy/Math.sqrt(sxx*syy)}
+function fit(x,y){const n=x.length,mx=x.reduce((a,b)=>a+b,0)/n,my=y.reduce((a,b)=>a+b,0)/n;let sxy=0,sxx=0;for(let i=0;i<n;i++){sxy+=(x[i]-mx)*(y[i]-my);sxx+=(x[i]-mx)**2}const b=sxy/sxx;return [my-b*mx,b]}
+const LAYOUT=(title,xt,yt)=>({title:{text:title,font:{size:14,color:'#16324f'}},margin:{l:56,r:16,t:44,b:52},paper_bgcolor:'rgba(0,0,0,0)',plot_bgcolor:'#fff',
+  xaxis:{title:xt,gridcolor:'#eef2f6',zeroline:false},yaxis:{title:yt,gridcolor:'#eef2f6',zeroline:false},showlegend:false,font:{family:'Inter',size:12,color:'#1c2733'}});
+function draw(){
+  const exw=document.getElementById('exw').checked;
+  const pts=D.points.filter(p=>!exw||!W.has(p.iso3)); const cm=D.means.filter(c=>!exw||!c.westminster);
+  const r1=pearson(pts.map(p=>p.opneg),pts.map(p=>p.api)), r2=pearson(cm.map(c=>c.opneg),cm.map(c=>c.api));
+  const [a1,b1]=fit(pts.map(p=>p.opneg),pts.map(p=>p.api)), [a2,b2]=fit(cm.map(c=>c.opneg),cm.map(c=>c.api));
+  const xr=[Math.min(...pts.map(p=>p.opneg)),Math.max(...pts.map(p=>p.opneg))], xr2=[Math.min(...cm.map(c=>c.opneg)),Math.max(...cm.map(c=>c.opneg))];
+  Plotly.react('ch-levels',[
+    {type:'scatter',mode:'markers',x:pts.map(p=>p.opneg),y:pts.map(p=>p.api),customdata:pts.map(p=>p.name+' '+p.year),
+     marker:{size:8,color:pts.map(p=>W.has(p.iso3)?'#e0954a':'#16324f'),opacity:.75,line:{width:1,color:'#fff'}},
+     hovertemplate:'<b>%{customdata}</b><br>speech negativity %{x:.1f}<br>survey API %{y:.2f}<extra></extra>'},
+    {type:'scatter',mode:'lines',x:xr,y:xr.map(v=>a1+b1*v),line:{dash:'dash',color:'#d1495b',width:1.5},hoverinfo:'skip'}],
+    LAYOUT(`Election-level observations  (r = ${r1.toFixed(2)}, n = ${pts.length})`,'Out-party negativity (parliamentary speech, preceding legislature)','Affective polarization index (surveys, Orhan 2022)'),{responsive:true,displayModeBar:false});
+  Plotly.react('ch-means',[
+    {type:'scatter',mode:'markers+text',x:cm.map(c=>c.opneg),y:cm.map(c=>c.api),text:cm.map(c=>c.iso3),textposition:'top right',textfont:{size:10,color:'#5b6b7b'},
+     customdata:cm.map(c=>c.name+' · '+c.n+' elections'),marker:{size:9,color:cm.map(c=>c.westminster?'#e0954a':'#16324f'),line:{width:1,color:'#fff'}},
+     hovertemplate:'<b>%{customdata}</b><br>speech negativity %{x:.1f}<br>survey API %{y:.2f}<extra></extra>'},
+    {type:'scatter',mode:'lines',x:xr2,y:xr2.map(v=>a2+b2*v),line:{dash:'dash',color:'#d1495b',width:1.5},hoverinfo:'skip'}],
+    LAYOUT(`Country means  (r = ${r2.toFixed(2)}, n = ${cm.length})`,'Out-party negativity (country mean)',''),{responsive:true,displayModeBar:false});
+  const tb=document.querySelector('#tb-means tbody'); tb.innerHTML='';
+  const [A,B]=fit(D.means.map(c=>c.opneg),D.means.map(c=>c.api));
+  D.means.map(c=>({...c,res:c.api-(A+B*c.opneg)})).sort((p,q)=>p.res-q.res).forEach(c=>{
+    tb.insertAdjacentHTML('beforeend',`<tr style="${c.westminster?'background:#fbf1e6':''}"><td>${c.name} <span style="color:#8693a1">${c.iso3}${c.westminster?' · Westminster':''}</span></td><td class="n">${c.n}</td><td class="n">${c.opneg.toFixed(1)}</td><td class="n">${c.api.toFixed(2)}</td><td class="n">${c.res>=0?'+':''}${c.res.toFixed(2)}</td></tr>`)});
+}
+document.getElementById('exw').addEventListener('change',draw); draw();
+const S=document.getElementById('stats'); const R=D.r;
+[['Elections paired',R.n_levels,'Orhan observations our panel can serve'],['Countries',R.n_means,'with at least one paired election'],
+ ['r, election level',R.levels.toFixed(2),`ex-Westminster ${R.levels_exw.toFixed(2)}`],['r, country means',R.means.toFixed(2),`ex-Westminster ${R.means_exw.toFixed(2)}`]]
+ .forEach(([l,v,s])=>S.insertAdjacentHTML('beforeend',`<div class="stat"><div class="l">${l}</div><div class="v">${v}</div><div class="s">${s}</div></div>`));
+document.getElementById('stamp').textContent=D.stamp.replace(/^(\d{4})(\d{2})(\d{2})(.*)$/,'$1-$2-$3$4');
+const G=document.getElementById('tb-grid');
+["fb=4 cap=5 incl_elec=1   levels r=+0.288 p=0.0011 n=125 | cmeans r=+0.318 p=0.0488 n=39", "fb=4 cap=5 incl_elec=0   levels r=+0.305 p=0.0010 n=113 | cmeans r=+0.408 p=0.0150 n=35", "fb=4 cap=6 incl_elec=1   levels r=+0.302 p=0.0006 n=126 | cmeans r=+0.332 p=0.0388 n=39", "fb=4 cap=6 incl_elec=0   levels r=+0.303 p=0.0010 n=115 | cmeans r=+0.410 p=0.0144 n=35", "fb=5 cap=5 incl_elec=1   levels r=+0.294 p=0.0009 n=125 | cmeans r=+0.330 p=0.0404 n=39", "fb=5 cap=5 incl_elec=0   levels r=+0.292 p=0.0016 n=114 | cmeans r=+0.409 p=0.0147 n=35", "fb=5 cap=6 incl_elec=1   levels r=+0.307 p=0.0005 n=126 | cmeans r=+0.340 p=0.0339 n=39", "fb=5 cap=6 incl_elec=0   levels r=+0.307 p=0.0008 n=115 | cmeans r=+0.420 p=0.0121 n=35"].forEach(l=>{const m=l.match(/fb=(\d) cap=(\d) incl_elec=(\d)\s+levels r=([+-][\d.]+) p=[\d.]+ n=(\d+) \| cmeans r=([+-][\d.]+) p=[\d.]+ n=(\d+)/); if(!m) return;
+  const name=(m[3]==='0'?'preceding legislature, election year excluded':'preceding legislature incl. election year')+` (fallback ${m[1]} yr, cap ${m[2]})`;
+  const main=(m[1]==='5'&&m[2]==='6'&&m[3]==='0');
+  G.insertAdjacentHTML('beforeend',`<tr style="${main?'font-weight:600':''}"><td>${name}${main?' · <span style="color:#e0954a">paper spec</span>':''}</td><td class="n">${m[5]}</td><td class="n">${(+m[4]).toFixed(3)}</td><td class="n">${m[7]}</td><td class="n">${(+m[6]).toFixed(3)}</td></tr>`)});
+</script>
+</body>
+</html>
