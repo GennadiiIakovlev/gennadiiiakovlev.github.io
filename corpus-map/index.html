@@ -687,11 +687,23 @@ function renderHeatmap(){
   const flat=z.flat().filter(x=>x!=null).sort((a,b)=>a-b);
   const pct=p=> flat.length ? flat[Math.min(flat.length-1, Math.max(0, Math.round(p*(flat.length-1))))] : 0;
   const lo=pct(0.02), hi=pct(0.98);
+  // Rows run lowest value (red) at the top to highest (blue) at the bottom; Plotly always
+  // draws zmin at the BOTTOM of a colourbar and cannot flip it, so the bar ran the other
+  // way (gena 2026-10-01: "legend goes blue to red, main graph goes red to blue"). Plot the
+  // negated values on a mirrored scale and label the bar with the real numbers, so the bar
+  // reads top-to-bottom in the same order as the rows; hover shows the real value.
+  const zneg=z.map(r=>r.map(x=>x==null?null:-x));
+  const span=hi-lo||1, raw=span/5, mag=Math.pow(10,Math.floor(Math.log10(raw)));
+  const step=[1,2,2.5,5,10].map(m=>m*mag).find(st=>st>=raw)||raw;
+  const ticks=[]; for(let t=Math.ceil(lo/step)*step; t<=hi+1e-9; t+=step) ticks.push(+t.toFixed(6));
+  const fmtTick=t=>Math.abs(t)<1e-9?"0":(Number.isInteger(t)?String(t):t.toFixed(1));
+  const RDBU_MIRROR=RDBU_REV.map(([q,c])=>[1-q,c]).reverse();
   Plotly.newPlot("hm-chart",[{
-    type:"heatmap", x:ys.map(String), y:have.map(c=>c.iso3), z,
-    colorscale:RDBU_REV, zmin:lo, zmax:hi, zmid:(lo+hi)/2, xgap:1, ygap:1,
-    hoverongaps:false, colorbar:{title:{text:DATA.varDefs[v].label,side:"right"},thickness:13},
-    hovertemplate:"%{y} · %{x}<br>"+DATA.varDefs[v].label+": %{z:.1f}<extra></extra>"
+    type:"heatmap", x:ys.map(String), y:have.map(c=>c.iso3), z:zneg, customdata:z,
+    colorscale:RDBU_MIRROR, zmin:-hi, zmax:-lo, zmid:-(lo+hi)/2, xgap:1, ygap:1,
+    hoverongaps:false, colorbar:{title:{text:DATA.varDefs[v].label,side:"right"},thickness:13,
+      tickvals:ticks.map(t=>-t), ticktext:ticks.map(fmtTick)},
+    hovertemplate:"%{y} · %{x}<br>"+DATA.varDefs[v].label+": %{customdata:.1f}<extra></extra>"
   }], baseLayout({
     margin:{t:20,r:18,b:46,l:54},
     xaxis:{title:"Year", dtick:1, gridcolor:"rgba(0,0,0,0)"},
