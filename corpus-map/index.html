@@ -391,19 +391,9 @@ td.num{text-align:right; font-variant-numeric:tabular-nums}
       <div class="table-wrap"><table id="val-means-tb"><thead><tr><th>Country</th><th class="num">Elections</th>
         <th class="num">Hostility in parliament</th><th class="num">Voters' dislike (survey)</th><th class="num">Voters vs parliament</th></tr></thead>
         <tbody></tbody></table></div>
+      <div class="v-note">Survey values from Orhan (2022, <i>Democratization</i>); parliamentary data as of
+        <span id="val-stamp"></span>. Countries whose parliaments we do not yet hold for the survey years are not shown.</div>
     </div>
-    <details class="card v-details"><summary>Does the result depend on how years are paired? (technical)</summary>
-      <p class="view-sub">The preceding-legislature rule is the paper's specification: post-election speech cannot have shaped pre-election attitudes. Adding the election year itself changes the fit by +0.011 at the election level and -0.044 on country means in this build; the full grid is below.</p>
-      <div class="table-wrap"><table id="val-grid"><thead><tr><th>Window</th><th class="num">n elections</th>
-        <th class="num">r</th><th class="num">n countries</th><th class="num">r, country means</th></tr></thead>
-        <tbody></tbody></table></div>
-      <div class="v-note"><b>Data vintage.</b> Panel build <span id="val-stamp"></span>; Orhan's API values from the 2022
-        <i>Democratization</i> article's replication data. Countries in Orhan's set whose parliaments we do not yet hold for
-        the relevant years are absent (in this build the biggest gaps are Korea, Taiwan, France, Ireland and Peru;
-        acquisition is in progress). Every number in this tab, including those in the text, is recomputed from the merged
-        table when the site is built.</div>
-    </div>
-    </details>
   </section>
 
 </main>
@@ -840,12 +830,6 @@ function renderValidation(){
     tb.insertAdjacentHTML('beforeend',`<tr><td>${c.name} <span style="color:#8693a1">${c.iso3}</span></td><td class="num">${c.n}</td>`+
       `<td class="num">${c.opneg.toFixed(1)}</td><td class="num">${c.api.toFixed(2)}</td><td class="num">${c.res>=0?'+':''}${c.res.toFixed(2)}</td></tr>`));
   document.getElementById('val-stamp').textContent=VAL.stamp.replace(/^(\d{4})(\d{2})(\d{2})(.*)$/,'$1-$2-$3$4');
-  const G=document.querySelector('#val-grid tbody');
-  VAL.grid.forEach(l=>{const m=l.match(/fb=(\d) cap=(\d) incl_elec=(\d)\s+levels r=([+-][\d.]+) p=[\d.]+ n=(\d+) \| cmeans r=([+-][\d.]+) p=[\d.]+ n=(\d+)/); if(!m) return;
-    const name=(m[3]==='0'?'preceding legislature, election year excluded':'preceding legislature incl. election year')+` (fallback ${m[1]} yr, cap ${m[2]})`;
-    const main=(m[1]==='5'&&m[2]==='6'&&m[3]==='0');
-    G.insertAdjacentHTML('beforeend',`<tr style="${main?'font-weight:600':''}"><td>${name}${main?' · <span style="color:#e0954a">paper spec</span>':''}</td>`+
-      `<td class="num">${m[5]}</td><td class="num">${(+m[4]).toFixed(3)}</td><td class="num">${m[7]}</td><td class="num">${(+m[6]).toFixed(3)}</td></tr>`)});
 }
 
 /* ── tabs / wiring ──────────────────────────────────────────────── */
